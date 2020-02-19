@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
      * putting the edittext input in variables and the field name and the value in content value
      * @param view
      */
-    public void enter(View view) {
+    public void sumbit(View view) {
 
         String name, address, strNum, strHnum, mName, strMnum, dName, strDnum;
         int num, Hnum, Mnum, Dnum;

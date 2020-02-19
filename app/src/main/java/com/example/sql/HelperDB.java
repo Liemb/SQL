@@ -4,10 +4,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.sql.GradesC.GRADE;
-import static com.example.sql.GradesC.KEY_ID;
-import static com.example.sql.GradesC.QUARTER;
-import static com.example.sql.GradesC.TABLE_GRADES;
+import static com.example.sql.gradess.GRADE;
+import static com.example.sql.gradess.KEY_ID;
+import static com.example.sql.gradess.QUARTER;
+import static com.example.sql.gradess.TABLE_GRADES;
 import static com.example.sql.Users.ADDRESS;
 import static com.example.sql.Users.DAD_NAME;
 import static com.example.sql.Users.DAD_NUM;
@@ -17,6 +17,7 @@ import static com.example.sql.Users.MOM_NUM;
 import static com.example.sql.Users.NAME;
 import static com.example.sql.Users.PHONE;
 import static com.example.sql.Users.TABLE_USERS;
+import static com.example.sql.gradess.KEY_ID;
 
 public class HelperDB extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "dbexam.db";
@@ -34,10 +35,10 @@ public class HelperDB extends SQLiteOpenHelper {
         strCreate+=" ("+KEY_ID+" INTEGER PRIMARY KEY,";
         strCreate+=" "+NAME+" TEXT,";
         strCreate+=" "+ADDRESS+" TEXT,";
-        strCreate+=" "+PHONE+" INTEGER";
-        strCreate+=" "+HOME_P+" INTEGER";
+        strCreate+=" "+PHONE+" INTEGER,";
+        strCreate+=" "+HOME_P+" INTEGER,";
         strCreate+=" "+MOM_NAME+" TEXT,";
-        strCreate+=" "+MOM_NUM+" INTEGER";
+        strCreate+=" "+MOM_NUM+" INTEGER,";
         strCreate+=" "+DAD_NAME+" TEXT,";
         strCreate+=" "+DAD_NUM+" INTEGER";
         strCreate+=");";
@@ -46,7 +47,7 @@ public class HelperDB extends SQLiteOpenHelper {
         strCreate="CREATE TABLE " + TABLE_GRADES;
         strCreate+=" ("+KEY_ID+" INTEGER PRIMARY KEY,";
         strCreate+=" "+NAME+" TEXT,";
-        strCreate+=" "+QUARTER+" INTEGER";
+        strCreate+=" "+QUARTER+" INTEGER,";
         strCreate+=" "+GRADE+" INTEGER";
         strCreate+=");";
         db.execSQL(strCreate);

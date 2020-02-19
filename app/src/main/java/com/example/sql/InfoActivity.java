@@ -15,9 +15,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import static com.example.sql.GradesC.TABLE_GRADES;
+import static com.example.sql.gradess.TABLE_GRADES;
 import static com.example.sql.Users.KEY_ID;
 import static com.example.sql.Users.TABLE_USERS;
+import static com.example.sql.gradess.TABLE_GRADES;
 
 public class InfoActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     SQLiteDatabase db;
@@ -96,10 +97,10 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
             } else {
                 crsr = db.query(TABLE_GRADES, null, null, null, null, null, null);
-                int co1 = crsr.getColumnIndex(GradesC.KEY_ID);
-                int co2 = crsr.getColumnIndex(GradesC.NAME);
-                int co3 = crsr.getColumnIndex(GradesC.QUARTER);
-                int co4 = crsr.getColumnIndex(GradesC.GRADE);
+                int co1 = crsr.getColumnIndex(gradess.KEY_ID);
+                int co2 = crsr.getColumnIndex(gradess.NAME);
+                int co3 = crsr.getColumnIndex(gradess.QUARTER);
+                int co4 = crsr.getColumnIndex(gradess.GRADE);
 
                 crsr.moveToFirst();
                 while (!crsr.isAfterLast()) {
@@ -148,7 +149,7 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public boolean onOptionsItemSelected (MenuItem item){
         String st = item.getTitle().toString();
-        if (st.equals("Enter Data")) {
+        if (st.equals("students")) {
             Intent si = new Intent(this, MainActivity.class);
             startActivity(si);
         }

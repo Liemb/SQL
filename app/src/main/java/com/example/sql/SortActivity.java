@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.example.sql.GradesC.TABLE_GRADES;
+import static com.example.sql.gradess.TABLE_GRADES;
 import static com.example.sql.Users.TABLE_USERS;
 
 public class SortActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -82,7 +82,7 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
                 fields= new String[]{Users.KEY_ID, Users.NAME};
             } else {
                 tbl2sort= TABLE_GRADES;
-                fields= new String[]{Users.KEY_ID, GradesC.GRADE};
+                fields= new String[]{Users.KEY_ID, gradess.GRADE};
             }
             ArrayAdapter<String> adpFields=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,fields);
             lvS.setAdapter(adpFields);
@@ -124,10 +124,10 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 } else {
                     crsr=db.query(TABLE_GRADES, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
-                    int co1 = crsr.getColumnIndex(GradesC.KEY_ID);
-                    int co2 = crsr.getColumnIndex(GradesC.NAME);
-                    int co3 = crsr.getColumnIndex(GradesC.QUARTER);
-                    int co4 = crsr.getColumnIndex(GradesC.GRADE);
+                    int co1 = crsr.getColumnIndex(gradess.KEY_ID);
+                    int co2 = crsr.getColumnIndex(gradess.NAME);
+                    int co3 = crsr.getColumnIndex(gradess.QUARTER);
+                    int co4 = crsr.getColumnIndex(gradess.GRADE);
                     crsr.moveToFirst();
                     while (!crsr.isAfterLast()) {
                         int key = crsr.getInt(co1);
@@ -160,7 +160,7 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public boolean onOptionsItemSelected (MenuItem item){
         String st = item.getTitle().toString();
-        if (st.equals("Enter Data")) {
+        if (st.equals("students")) {
             Intent si = new Intent(this, MainActivity.class);
             startActivity(si);
         }

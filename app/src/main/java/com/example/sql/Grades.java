@@ -34,7 +34,7 @@ public class Grades extends AppCompatActivity {
      * putting the edittext input in variables and the field name and the value in content value
      * @param view
      */
-    public void entergrades(View view) {
+    public void sumbitg(View view) {
 
         String name, strQuar, strGrade;
         int Grade, Quar;
@@ -45,12 +45,12 @@ public class Grades extends AppCompatActivity {
         Grade = Integer.parseInt(strGrade);
 
         ContentValues cv = new ContentValues();
-        cv.put(GradesC.NAME, name);
-        cv.put(GradesC.QUARTER, Quar);
-        cv.put(GradesC.GRADE, Grade);
+        cv.put(gradess.NAME, name);
+        cv.put(gradess.QUARTER, Quar);
+        cv.put(gradess.GRADE, Grade);
 
         db = hlp.getWritableDatabase();
-        db.insert(GradesC.TABLE_GRADES, null, cv);
+        db.insert(gradess.TABLE_GRADES, null, cv);
         db.close();
 
     }
@@ -66,7 +66,7 @@ public class Grades extends AppCompatActivity {
 
     public boolean onOptionsItemSelected (MenuItem item){
         String st = item.getTitle().toString();
-        if (st.equals("Enter Data")) {
+        if (st.equals("students")) {
             Intent si = new Intent(this, MainActivity.class);
             startActivity(si);
         }
