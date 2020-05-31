@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Dnum = Integer.parseInt(etDNUM.getText().toString());
 
         ContentValues cv = new ContentValues();
-        cv.put(Users.NAME, name);
+        cv.put(Users.UNAME, name);
         cv.put(Users.ADDRESS, address);
         cv.put(Users.PHONE, num);
         cv.put(Users.HOME_P, Hnum);

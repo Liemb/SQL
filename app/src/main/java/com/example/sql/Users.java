@@ -3,7 +3,7 @@ package com.example.sql;
 public class Users {
     public static final String TABLE_USERS = "Users";
     public static final String KEY_ID = "_id";
-    public static final String NAME = "NAME";
+    public static final String UNAME = "UNAME";
     public static final String ADDRESS = "Address";
     public static final String PHONE = "Phone";
     public static final String HOME_P = "Home_P";

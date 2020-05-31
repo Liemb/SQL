@@ -56,6 +56,10 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
         adp = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t);
         lvT.setAdapter(adp);
 
+        arr = new ArrayList<>();
+        adp2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, arr);
+        lvR.setAdapter(adp2);
+
     }
 
     @Override
@@ -69,9 +73,9 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
              * adding the data to the arraylist
              */
             if (tableC == 1) {
-                crsr = db.query(TABLE_USERS, null, null, null, null, null, null);
+                Cursor crsr = db.query(TABLE_USERS, null, null, null, null, null, null);
                 int co1 = crsr.getColumnIndex(KEY_ID);
-                int co2 = crsr.getColumnIndex(Users.NAME);
+                int co2 = crsr.getColumnIndex(Users.UNAME);
                 int co3 = crsr.getColumnIndex(Users.ADDRESS);
                 int co4 = crsr.getColumnIndex(Users.PHONE);
                 int co5 = crsr.getColumnIndex(Users.HOME_P);
@@ -96,9 +100,9 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
                     crsr.moveToNext();
                 }
             } else {
-                crsr = db.query(TABLE_GRADES, null, null, null, null, null, null);
+                Cursor crsr = db.query(TABLE_GRADES, null, null, null, null, null, null);
                 int co1 = crsr.getColumnIndex(gradess.KEY_ID);
-                int co2 = crsr.getColumnIndex(gradess.NAME);
+                int co2 = crsr.getColumnIndex(gradess.GNAME);
                 int co3 = crsr.getColumnIndex(gradess.QUARTER);
                 int co4 = crsr.getColumnIndex(gradess.GRADE);
 
@@ -115,9 +119,8 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
 
             }
             crsr.close();
-            db.close();
-            adp2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, arr);
-            lvR.setAdapter(adp2);
+//            db.close();
+            adp2.notifyDataSetChanged();
         }
         /**
          * deleting a row when the listview is c;icked

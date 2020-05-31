@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static com.example.sql.Users.UNAME;
+import static com.example.sql.gradess.GNAME;
 import static com.example.sql.gradess.GRADE;
 import static com.example.sql.gradess.KEY_ID;
 import static com.example.sql.gradess.QUARTER;
@@ -14,7 +16,7 @@ import static com.example.sql.Users.DAD_NUM;
 import static com.example.sql.Users.HOME_P;
 import static com.example.sql.Users.MOM_NAME;
 import static com.example.sql.Users.MOM_NUM;
-import static com.example.sql.Users.NAME;
+import static com.example.sql.Users.UNAME;
 import static com.example.sql.Users.PHONE;
 import static com.example.sql.Users.TABLE_USERS;
 import static com.example.sql.gradess.KEY_ID;
@@ -33,7 +35,7 @@ public class HelperDB extends SQLiteOpenHelper {
 
         strCreate="CREATE TABLE "+TABLE_USERS;
         strCreate+=" ("+KEY_ID+" INTEGER PRIMARY KEY,";
-        strCreate+=" "+NAME+" TEXT,";
+        strCreate+=" "+UNAME+" TEXT,";
         strCreate+=" "+ADDRESS+" TEXT,";
         strCreate+=" "+PHONE+" INTEGER,";
         strCreate+=" "+HOME_P+" INTEGER,";
@@ -46,7 +48,7 @@ public class HelperDB extends SQLiteOpenHelper {
 
         strCreate="CREATE TABLE " + TABLE_GRADES;
         strCreate+=" ("+KEY_ID+" INTEGER PRIMARY KEY,";
-        strCreate+=" "+NAME+" TEXT,";
+        strCreate+=" "+GNAME+" TEXT,";
         strCreate+=" "+QUARTER+" INTEGER,";
         strCreate+=" "+GRADE+" INTEGER";
         strCreate+=");";

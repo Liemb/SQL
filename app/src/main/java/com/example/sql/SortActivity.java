@@ -79,7 +79,7 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
              */
             if (table==0) {
                 tbl2sort= TABLE_USERS;
-                fields= new String[]{Users.KEY_ID, Users.NAME};
+                fields= new String[]{Users.KEY_ID, Users.UNAME};
             } else {
                 tbl2sort= TABLE_GRADES;
                 fields= new String[]{Users.KEY_ID, gradess.GRADE};
@@ -97,7 +97,7 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (table == 0) {
                     crsr=db.query(TABLE_USERS, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
                     int co1 = crsr.getColumnIndex(Users.KEY_ID);
-                    int co2 = crsr.getColumnIndex(Users.NAME);
+                    int co2 = crsr.getColumnIndex(Users.UNAME);
                     int co3 = crsr.getColumnIndex(Users.ADDRESS);
                     int co4 = crsr.getColumnIndex(Users.PHONE);
                     int co5 = crsr.getColumnIndex(Users.HOME_P);
@@ -125,7 +125,7 @@ public class SortActivity extends AppCompatActivity implements AdapterView.OnIte
                 } else {
                     crsr=db.query(TABLE_GRADES, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
                     int co1 = crsr.getColumnIndex(gradess.KEY_ID);
-                    int co2 = crsr.getColumnIndex(gradess.NAME);
+                    int co2 = crsr.getColumnIndex(gradess.GNAME);
                     int co3 = crsr.getColumnIndex(gradess.QUARTER);
                     int co4 = crsr.getColumnIndex(gradess.GRADE);
                     crsr.moveToFirst();
