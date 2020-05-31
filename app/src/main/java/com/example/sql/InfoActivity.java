@@ -23,7 +23,7 @@ import static com.example.sql.gradess.TABLE_GRADES;
 public class InfoActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     SQLiteDatabase db;
     HelperDB hlp;
-    Cursor crsr;
+    //Cursor crsr;
     ListView lvT, lvR;
     ArrayAdapter adp, adp2;
     ArrayList<String> arr = new ArrayList<>();
@@ -55,10 +55,6 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
         String[] t = {TABLE_USERS,TABLE_GRADES};
         adp = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, t);
         lvT.setAdapter(adp);
-
-        arr = new ArrayList<>();
-        adp2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, arr);
-        lvR.setAdapter(adp2);
 
     }
 
@@ -117,10 +113,12 @@ public class InfoActivity extends AppCompatActivity implements AdapterView.OnIte
                     crsr.moveToNext();
                 }
 
+                crsr.close();
             }
-            crsr.close();
-//            db.close();
-            adp2.notifyDataSetChanged();
+
+            db.close();
+            adp2 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, arr);
+            lvR.setAdapter(adp2);
         }
         /**
          * deleting a row when the listview is c;icked
